@@ -4,7 +4,7 @@
 
 [![PyPI version](https://badge.fury.io/py/prompt-bonsai.svg)](https://badge.fury.io/py/prompt-bonsai)
 [![Python versions](https://img.shields.io/pypi/pyversions/prompt-bonsai.svg)](https://pypi.org/project/prompt-bonsai/)
-[![CI](https://github.com/vodalachakshu/prompt-bonsai/workflows/CI/badge.svg)](https://github.com/vodalachakshu/prompt-bonsai/actions)
+[![CI](https://github.com/vodalachakshu123/prompt-bonsai/workflows/CI/badge.svg)](https://github.com/vodalachakshu123/prompt-bonsai/actions)
 [![Codecov](https://codecov.io/gh/vodalachakshu/prompt-bonsai/branch/main/graph/badge.svg)](https://codecov.io/gh/vodalachakshu/prompt-bonsai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -190,7 +190,7 @@ See [full documentation](https://prompt-bonsai.readthedocs.io).
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```bash
-git clone https://github.com/vodalachakshu/prompt-bonsai.git
+git clone https://github.com/vodalachakshu123/prompt-bonsai.git
 cd prompt-bonsai
 pip install -e ".[dev]"
 pytest

@@ -60,11 +60,11 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/vodalachakshu/prompt-bonsai"
+Homepage = "https://github.com/vodalachakshu123/prompt-bonsai"
 Documentation = "https://prompt-bonsai.readthedocs.io"
-Repository = "https://github.com/vodalachakshu/prompt-bonsai"
-Issues = "https://github.com/vodalachakshu/prompt-bonsai/issues"
-Changelog = "https://github.com/vodalachakshu/prompt-bonsai/blob/main/CHANGELOG.md"
+Repository = "https://github.com/vodalachakshu123/prompt-bonsai"
+Issues = "https://github.com/vodalachakshu123/prompt-bonsai/issues"
+Changelog = "https://github.com/vodalachakshu123/prompt-bonsai/blob/main/CHANGELOG.md"
 
 [project.scripts]
 prompt-bonsai = "prompt_bonsai.cli:main"
