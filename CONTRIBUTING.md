@@ -5,7 +5,7 @@ Thank you for your interest in contributing!
 ## Development Setup
 
 ```bash
-git clone https://github.com/yourusername/prompt-bonsai.git
+git clone https://github.com/vodalachakshu123/prompt-bonsai.git
 cd prompt-bonsai
 pip install -e ".[dev]"
 ```
