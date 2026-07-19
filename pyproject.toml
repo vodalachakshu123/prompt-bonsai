@@ -1,0 +1,99 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "prompt-bonsai"
+dynamic = ["version"]
+description = "Intelligent prompt compression for LLMs — cut token costs without losing meaning"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Vodala Chakshu", email = "chakshuvodala123@gmail.com"},
+]
+keywords = [
+    "llm", "prompt", "compression", "tokens", "openai", "anthropic",
+    "cost-optimization", "ai", "nlp", "context-window"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "tiktoken>=0.7.0",
+    "transformers>=4.30.0",
+    "sentencepiece>=0.1.99",
+    "numpy>=1.24.0",
+    "pydantic>=2.0.0",
+    "rich>=13.0.0",
+    "structlog>=24.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "pytest-asyncio>=0.23.0",
+    "black>=24.0.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.0",
+    "mkdocs>=1.6.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.25.0",
+]
+openai = ["openai>=1.0.0"]
+anthropic = ["anthropic>=0.25.0"]
+langchain = ["langchain-core>=0.2.0"]
+all = [
+    "prompt-bonsai[openai,anthropic,langchain]",
+]
+
+[project.urls]
+Homepage = "https://github.com/vodalachakshu/prompt-bonsai"
+Documentation = "https://prompt-bonsai.readthedocs.io"
+Repository = "https://github.com/vodalachakshu/prompt-bonsai"
+Issues = "https://github.com/vodalachakshu/prompt-bonsai/issues"
+Changelog = "https://github.com/vodalachakshu/prompt-bonsai/blob/main/CHANGELOG.md"
+
+[project.scripts]
+prompt-bonsai = "prompt_bonsai.cli:main"
+
+[tool.hatch.version]
+path = "src/prompt_bonsai/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/prompt_bonsai"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "--cov=prompt_bonsai --cov-report=term-missing --cov-report=html"

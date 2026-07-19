@@ -1,0 +1,15 @@
+{
+  "name": "sample",
+  "description": "Sample prompts for quick benchmarking",
+  "prompts": [
+    "I would like to kindly request your assistance with understanding the fundamental principles of quantum mechanics. Please, if you could, explain wave-particle duality, the uncertainty principle, and quantum entanglement in simple terms with specific examples.",
+
+    "System: You are an expert Python developer. Please review the following code and suggest improvements for readability, performance, and maintainability. Consider PEP 8 compliance, type hints, documentation, error handling, and testing coverage.",
+
+    "```json\n{\n  \"users\": [\n    {\"id\": 1, \"name\": \"Alice\", \"role\": \"admin\"},\n    {\"id\": 2, \"name\": \"Bob\", \"role\": \"user\"}\n  ]\n}\n```\n\nAnalyze this user data and provide insights about role distribution.",
+
+    "Hello! I was wondering if you might be able to help me with a very important project. It would be really great if you could provide a comprehensive analysis of machine learning trends in 2024, including deep learning, transformers, and multimodal models.",
+
+    "You are a helpful assistant. Please answer the following question accurately and concisely. If you don't know the answer, please say so rather than making something up."
+  ]
+}
