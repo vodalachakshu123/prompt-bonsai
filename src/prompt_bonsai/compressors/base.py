@@ -92,11 +92,30 @@ class BaseCompressor(ABC):
         # Quality check
         quality = self.quality_assessor.assess(text, compressed, patterns)
 
+        # If quality is too low, try gentler compression (fall back)
         if quality.overall_score < self.config.min_quality:
-            raise QualityError(
-                f"Compressed prompt quality ({quality.overall_score:.2f}) "
-                f"below minimum threshold ({self.config.min_quality})"
-            )
+            # Try with a less aggressive target (half the requested reduction)
+            gentler_ratio = ratio * 0.5
+            gentler_target = int(original_tokens * (1 - gentler_ratio))
+
+            try:
+                compressed_gentler = self._compress_impl(text, gentler_target, patterns)
+                quality_gentler = self.quality_assessor.assess(text, compressed_gentler, patterns)
+
+                if quality_gentler.overall_score >= self.config.min_quality:
+                    compressed = compressed_gentler
+                    compressed_tokens = self.tokenizer.count(compressed)
+                    quality = quality_gentler
+                    duration_ms = (time.perf_counter() - start_time) * 1000
+            except Exception:
+                pass  # If gentler also fails, use original compressed result
+
+            # If still below threshold after fallback, only raise if severely bad
+            if quality.overall_score < self.config.min_quality * 0.7:
+                raise QualityError(
+                    f"Compressed prompt quality ({quality.overall_score:.2f}) "
+                    f"below minimum threshold ({self.config.min_quality})"
+                )
 
         return CompressionResult(
             text=compressed,

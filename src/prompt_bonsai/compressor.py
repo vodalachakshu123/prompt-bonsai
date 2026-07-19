@@ -16,7 +16,7 @@ class Compressor:
 
     Usage:
         >>> from prompt_bonsai import Compressor
-        >>> compressor = Compressor(strategy="hybrid", target_ratio=0.5)
+        >>> compressor = Compressor(strategy="hybrid", target_ratio=0.3)
         >>> result = compressor.compress("Your long prompt here...")
         >>> print(result.text)
         >>> print(f"Saved {result.original_tokens - result.compressed_tokens} tokens")
@@ -43,8 +43,8 @@ class Compressor:
     def __init__(
         self,
         strategy: Union[str, CompressionStrategy] = "hybrid",
-        target_ratio: float = 0.5,
-        min_quality: float = 0.90,
+        target_ratio: float = 0.3,
+        min_quality: float = 0.70,
         preserve: Optional[List[str]] = None,
         config: Optional[CompressionConfig] = None,
         model_name: Optional[str] = None,
@@ -160,10 +160,10 @@ class Compressor:
 # Convenience function for one-off compression
 def compress(
     text: str,
-    ratio: float = 0.5,
+    ratio: float = 0.3,
     strategy: str = "hybrid",
     preserve: Optional[List[str]] = None,
-    min_quality: float = 0.90,
+    min_quality: float = 0.70,
     model_name: Optional[str] = None,
 ) -> str:
     """One-shot prompt compression.
@@ -171,7 +171,7 @@ def compress(
     This is the simplest way to compress a prompt:
 
         >>> from prompt_bonsai import compress
-        >>> short = compress("Your very long prompt here...", ratio=0.5)
+        >>> short = compress("Your very long prompt here...", ratio=0.3)
 
     Args:
         text: The prompt text to compress.

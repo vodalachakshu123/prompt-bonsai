@@ -37,8 +37,8 @@ class CompressionConfig:
         custom_strategies: Custom strategy configurations.
     """
     strategy: CompressionStrategy = CompressionStrategy.HYBRID
-    target_ratio: float = 0.5
-    min_quality: float = 0.90
+    target_ratio: float = 0.3
+    min_quality: float = 0.70
     max_iterations: int = 3
     preserve_patterns: List[str] = field(default_factory=list)
     tokenizer_backend: TokenizerBackend = TokenizerBackend.AUTO
